@@ -1,0 +1,17 @@
+<div class="container" *ngIf="cvList.length > 0 " >
+<h4>Liste des CVs sélectionnés pour embauche</h4>
+
+<div class="rounded border border-primary">
+<ol class="list-group" >
+
+  <li class="list-group-item mt-1 "  *ngFor="let unCv of cvList; let isOdd = odd;"
+      [ngClass]="{'list-group-item-primary' : isOdd, 'list-group-item-secondary':!isOdd}" >
+
+    <span>{{unCv?.name}} {{unCv.firstname}}</span>
+    <span><img class="rounded" src="assets/images/{{unCv?.path | defaultImage}}" height="60px" width="60px"> </span>
+  </li>
+</ol>
+</div>
+</div>
+
+

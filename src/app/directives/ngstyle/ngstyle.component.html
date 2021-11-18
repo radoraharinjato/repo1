@@ -1,0 +1,18 @@
+<p [ngStyle]="
+{
+'color': color,
+'font-size':fontSize +'px',
+'font-family':fontFamily
+}
+
+">
+Test de ngstyle !
+</p>
+
+<input #textColor type="color" class="input-lg" (change)="changeColor(textColor.value)" />
+
+<input #textSize type="number" class="input-lg"  [(ngModel)]="fontSize" />
+
+<input #textFamily type="text" class="input-lg" (change)="changeFamily(textFamily.value)" />
+
+

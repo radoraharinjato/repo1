@@ -1,0 +1,41 @@
+<div class="row">
+
+  <div class="col">
+
+    <ol class="list-group" >
+
+      <h3>Ma liste de tâche</h3>
+
+      <li class="list-group-item mt-1 "  *ngFor="let unTodo of todoList ; let isOdd = odd;"
+          [ngClass]="{'list-group-item-primary' : isOdd, 'list-group-item-secondary':!isOdd}"  >
+        <div class="row">
+          <div class="col">
+            <span> {{unTodo.name}} {{unTodo.content}} </span>
+          </div>
+          <div class="col" >
+            <i class="far fa-trash-alt" (click)="deleteTodo(unTodo)" ></i>
+          </div>
+        </div>
+      </li>
+    </ol>
+
+  </div>
+
+  <div class="col">
+
+      <div class="form-group">
+        <label for="todoName">Name</label>
+        <input type="text" class="form-control" id="todoName" [(ngModel)]="nameToAdd" >
+        <label for="todoContent">Content</label>
+        <input type="text" class="form-control" id="todoContent" [(ngModel)]="contentToAdd" >
+      </div>
+
+        <button type="submit" class="btn btn-primary mb-2" (click)="addTodo()"
+                [disabled]="!nameToAdd?.trim().length || !contentToAdd?.trim().length"
+        >
+          Add todo
+        </button>
+
+  </div>
+
+</div>

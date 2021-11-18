@@ -1,0 +1,63 @@
+<div class="d-flex justify-content-center" *ngIf="cvSelected" >
+  <div class="col-lg-8 push-lg-4">
+    <div class="tab-content p-b-3">
+      <div class="tab-pane active" id="profile">
+        <h4 class="m-y-2">Cv
+          {{cvSelected.name}} {{cvSelected.firstname}}
+        </h4>
+        <div class="d-flex justify-content-center">
+          <img width="150px" height="150px" class="rounded-circle align-content-center" src="assets/images/{{cvSelected?.path | defaultImage}}" alt="">
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h4 class="m-t-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Informations</h4>
+            <table class="table table-hover table-striped">
+              <tbody>
+              <tr>
+                <td>
+                  <strong>Name</strong> {{cvSelected?.name}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Firstname</strong> {{cvSelected?.firstname}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Job</strong> {{cvSelected?.job}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Age</strong> {{cvSelected?.age}}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>Cin</strong> {{cvSelected?.cin}}
+                </td>
+              </tr>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+
+              <button
+                [routerLink]="['/cv']"
+                class="btn btn-secondary" >
+                Revenir à la liste des CV
+              </button>
+
+              <button
+                *ngIf="authService.isAuthenticated()"
+                (click)="deleteCv()"
+                class="btn btn-danger" >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

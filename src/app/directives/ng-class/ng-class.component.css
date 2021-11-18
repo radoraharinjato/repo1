@@ -1,0 +1,13 @@
+.isOn{
+  border: 1px yellow solid;
+  background-color: yellow;
+}
+
+.isOff{
+  border: 1px black solid;
+}
+
+div {
+  height: 50px;
+  width: 50px;
+}

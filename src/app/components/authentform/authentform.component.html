@@ -1,0 +1,40 @@
+<form #authform="ngForm" >
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+
+    <input type="email" class="form-control" aria-describedby="emailHelp" id="exampleInputEmail1"
+           ngModel name="email"
+           required
+           email
+           #emailInput="ngModel"
+    >
+    <div *ngIf="emailInput.invalid && emailInput.touched"
+         class="alert alert-danger">
+        Email is invalid.
+    </div>
+
+
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+
+    <input type="password" class="form-control" id="exampleInputPassword1"
+           ngModel name="password"
+           required
+           minlength="4"
+           #passwordInput="ngModel"
+    >
+
+    <div *ngIf="passwordInput.invalid && passwordInput.touched"
+         class="alert alert-danger">
+      Password doit avoir 4 caractères minimum.
+    </div>
+
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="login(authform)"
+          [disabled]="authform.invalid"
+  >
+    Submit</button>
+</form>

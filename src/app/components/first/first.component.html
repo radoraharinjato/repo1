@@ -1,0 +1,11 @@
+<p [hidden]="isHidden"  (click)="alerter()" >first works!</p>
+
+<button class="btn btn-danger" (click)="showHide()" >
+show / hide
+</button>
+
+<input #moninput type="text" class="form-control" (click)="changeMessage(moninput.value)" />
+Contenu du champ : {{message}}
+
+<br>
+
